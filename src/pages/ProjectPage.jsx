@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom"
 import { FaArrowLeft, FaExternalLinkAlt } from "react-icons/fa"
 import projectsData from "../data/projects.json"
 import * as S from "./ProjectPage.styles"
+import { asset } from "../asset"
 
 function getYoutubeId(url) {
   if (url.includes("shorts/")) {
@@ -129,7 +130,7 @@ export default function ProjectPage() {
                   type="button"
                   onClick={() => openMedia(imageUrl, "image")}
                 >
-                  <img src={imageUrl} alt={`${project.title} — captura ${index + 1}`} />
+                  <img src={asset(imageUrl)} alt={`${project.title} — captura ${index + 1}`} />
                 </S.ImageItem>
               ))}
             </S.MediaGrid>
@@ -183,7 +184,7 @@ export default function ProjectPage() {
         <S.Modal onClick={() => setModalOpen(false)}>
           <S.ModalContent onClick={(event) => event.stopPropagation()}>
             {isVideo ? renderVideoEmbed(modalContent, true) : (
-              <img src={modalContent} alt="Visualização ampliada" />
+              <img src={asset(modalContent)} alt="Visualização ampliada" />
             )}
           </S.ModalContent>
         </S.Modal>

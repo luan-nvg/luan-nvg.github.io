@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { AnimatePresence } from "framer-motion"
 import { FaEnvelope, FaWhatsapp, FaLinkedin, FaArrowRight } from "react-icons/fa"
 import * as S from "./styles"
+import { asset } from "../asset"
 
 const SKILLS = [
   "React",
@@ -143,7 +144,7 @@ export default function Portfolio() {
 
             <S.HeroVisual>
               <S.HeroPhotoFrame>
-                <S.HeroPhoto src="/my-photo.png" alt="Luan Cerqueira" />
+                <S.HeroPhoto src={asset("/my-photo.png")} alt="Luan Cerqueira" />
               </S.HeroPhotoFrame>
             </S.HeroVisual>
           </S.HeroSplit>
@@ -204,7 +205,7 @@ export default function Portfolio() {
               >
                 <S.ProjectImageWrap>
                   <S.ProjectImage
-                    src={project.imageUrl}
+                    src={asset(project.imageUrl)}
                     alt={project.title}
                     $fit={project.imageFit}
                   />
